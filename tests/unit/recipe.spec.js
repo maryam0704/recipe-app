@@ -17,10 +17,7 @@ describe("HelloWorld.vue", () => {
   it("this button should emit like ", () => {});
 
   it("this button should emit unlike", () => {});
-
-    it('this button should emit "back to main page"', () => { });
-    
-    it('this button should not emit "share" option', () => { });
-    it('this button should emit "share" option', () => { });
-
+  it('this button should emit "back to main page"', () => {});
+  it('this button should not emit "share" option', () => {});
+  it('this button should emit "share" option', () => {});
 });
