@@ -1,7 +1,6 @@
 // import { shallowMount } from "@vue/test-utils";
 // import HelloWorld from "@/components/Recipe.vue";
 
-
 describe("HelloWorld.vue", () => {
   it("renders title of recipe when passed by the user", () => {});
 
@@ -13,6 +12,5 @@ describe("HelloWorld.vue", () => {
 
   it("the author should be able to add their name", () => {});
 
-  it('this button should  be able to emit "add"', () => { });
-  
+  it('this button should  be able to emit "add"', () => {});
 });
