@@ -1,6 +1,8 @@
 <template>
-  <h1>recipe book</h1>
-
+  <div class="heading">
+    <h1>Delicious Recipes</h1>
+    <h2>Explore a world of mouthwatering recipes for every occasion.</h2>
+  </div>
   <RecipesList :recipes="recipes"> </RecipesList>
 </template>
 
@@ -10,60 +12,7 @@ import RecipesList from "./components/RecipesList.vue";
 export default {
   name: "App",
   data() {
-    return {
-      coursesSelected: 0,
-      coursesSelectedList: [],
-      recipes: [
-        {
-          id: 1,
-          name: "Banana Bread",
-          description:
-            "This banana bread recipe creates the most delicious, moist loaf with loads of banana flavor.",
-          preptime: "30 minutes",
-          ingridents:
-            "1 pound lean ground beef ,15 ounces tomato sauce, 1 (15 ounce) can kidney beans, drained 1 (15 ounce) can chili beans, not drained 2 tablespoons chili powder, or to taste salt and freshly ground black pepper to taste",
-          chef: "alpha",
-        },
-        {
-          id: 2,
-          name: "Salsa Chicken",
-          description:
-            "Use your favorite jar of salsa to give simple chicken breasts big flavor.",
-          preptime: "30 minutes",
-          ingridents:
-            "1 pound lean ground beef ,15 ounces tomato sauce, 1 (15 ounce) can kidney beans, drained 1 (15 ounce) can chili beans, not drained 2 tablespoons chili powder, or to taste salt and freshly ground black pepper to taste",
-          chef: "charlie",
-        },
-        {
-          id: 3,
-          name: "Chorizo Street Tacos",
-          description:
-            "Chorizo and chipotle peppers give these street-style tacos some serious heat. ",
-          preptime: "30 minutes",
-          ingridents:
-            "1 pound lean ground beef ,15 ounces tomato sauce, 1 (15 ounce) can kidney beans, drained 1 (15 ounce) can chili beans, not drained 2 tablespoons chili powder, or to taste salt and freshly ground black pepper to taste",
-          chef: "barvo",
-        },
-        // {
-        //   id: 4,
-        //   name: "Mexican Casserole",
-        //   description: "This Mexican casserole is made with pantry staples ",
-        // },
-        // {
-        //   id: 5,
-        //   name: "Suegra's Tomatillo Chicken",
-        //   description:
-        //     "Chicken pieces are seared and then simmered in a tomatillo sauce. ",
-        // },
-
-        // {
-        //   id: 6,
-        //   name: "Papas con Chorizo ",
-        //   description:
-        //     "The bold, delicious flavors of this traditional Mexican dish",
-        // },
-      ],
-    };
+    return {};
   },
   components: {
     RecipesList,
@@ -80,10 +29,27 @@ export default {
 };
 </script>
 <style lang="scss">
-.recipelist {
-  background-color: grey;
-  h1 {
-    color: red;
-  }
+.heading {
+  background-color: #5c565627;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+h1 {
+  font-family: "Pacifico", cursive;
+  font-size: 50px;
+  color: #ff6f00;
+  text-shadow: 2px 2px 4px #000000;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  word-spacing: 5px;
+}
+h2 {
+  font-size: 26px;
+  font-family: "Pacifico", cursive;
+  color: #ff6f00;
+  text-shadow: 1px 1px 2px #1f1e1e;
+  letter-spacing: 1px;
 }
 </style>
