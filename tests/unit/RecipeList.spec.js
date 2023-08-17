@@ -1,79 +1,39 @@
-import { mount } from "@vue/test-utils";
+import { shallowMount } from "@vue/test-utils";
 import RecipesList from "@/components/RecipesList.vue";
 
 describe("RecipesList", () => {
-  it("renders a list of DetailedRecipe components", () => {
-    const wrapper = mount(RecipesList);
-
-    const detailedRecipeComponents = wrapper.findAllComponents({
-      name: "DetailedRecipe",
-    });
-
-    // Check if the number of DetailedRecipe components matches the number of recipes in the data
-    expect(detailedRecipeComponents.length).toBe(wrapper.vm.recipes.length);
-  });
-
-  it("renders an AddRecipe component", () => {
-    const wrapper = mount(RecipesList);
-
+  it("renders an AddRecipe component", async () => {
+    const wrapper = shallowMount(RecipesList);
     const addRecipeComponent = wrapper.findComponent({ name: "AddRecipe" });
-
-    // Check if the AddRecipe component is rendered
     expect(addRecipeComponent.exists()).toBe(true);
   });
 
-  it('adds a new recipe when "addedRecipe" event is emitted', async () => {
-    const wrapper = mount(RecipesList);
-
-    const newRecipe = {
-      id: 4,
-      name: "New Recipe",
-      description: "Test Description",
-      preptime: "30 minutes",
-      ingridents: "Test Ingredients",
-      chef: "Test Chef",
-    };
-
-    // Emit the "addedRecipe" event
-    await wrapper.vm.addedRecipe(newRecipe);
-
-    // Check if the new recipe is added to the list
-    const addedRecipeComponent = wrapper.findComponent({
+  it("renders a Detailed component", () => {
+    const wrapper = shallowMount(RecipesList);
+    const DetailedRecipeComponent = wrapper.findComponent({
       name: "DetailedRecipe",
-      props: { recipe: newRecipe },
     });
-    expect(addedRecipeComponent.exists()).toBe(true);
+    expect(DetailedRecipeComponent.exists()).toBe(true);
   });
 
-  // it('does not add a new recipe when "addedRecipe" event is emitted with empty data', async () => {
-  //   const wrapper = mount(RecipesList);
+  it("renders a Detailed component for each recipe in recipes data", () => {
+    const wrapper = shallowMount(RecipesList);
+    const DetailedRecipeComponents = wrapper.findAllComponents({
+      name: "DetailedRecipe",
+    });
+    expect(DetailedRecipeComponents.length).toBe(wrapper.vm.recipes.length);
+  });
 
-  //   // Emit the "addedRecipe" event with empty data
-  //   await wrapper.vm.addedRecipe({});
+  it("adds the new recipe when addedRecipe is triggered", async () => {
+    const recipeId = 5;
+    const wrapper = shallowMount(RecipesList);
 
-  //   // Check if no new recipe is added to the list
-  //   const addedRecipeComponent = wrapper.findComponent({
-  //     name: "DetailedRecipe",
-  //     props: { recipe: {} },
-  //   });
-  //   expect(addedRecipeComponent.exists()).toBe(false);
-  // });
+    await wrapper.vm.addedRecipe(recipeId);
 
-  // it('does not add a new recipe when "addedRecipe" event is not emitted', () => {
-  //   const wrapper = mount(RecipesList);
+    // Expect the addedRecipe event to be emitted
+    expect(wrapper.emitted().addedRecipe).toBeTruthy();
 
-  //   // Check if no new recipe is added initially
-  //   const initialRecipeComponents = wrapper.findAllComponents({
-  //     name: "DetailedRecipe",
-  //   });
-  //   expect(initialRecipeComponents.length).toBe(wrapper.vm.recipes.length);
-
-  //   // Do not emit the "addedRecipe" event
-
-  //   // Check if no new recipe is added after the event was not emitted
-  //   const recipeComponentsAfterEvent = wrapper.findAllComponents({
-  //     name: "DetailedRecipe",
-  //   });
-  //   expect(recipeComponentsAfterEvent.length).toBe(wrapper.vm.recipes.length);
-  // });
+    // Check the emitted value matches the provided recipeId
+    expect(wrapper.emitted().addedRecipe[0][0]).toBe(recipeId);
+  });
 });

@@ -3,7 +3,7 @@
     <div class="displayComment">
       <div v-for="(comment, index) in comments" :key="index">
         <h4>{{ comment.text }}</h4>
-        <p><strong> By: </strong>{{ comment.author }} - </p>
+        <p><strong> By: </strong>{{ comment.author }} -</p>
         <p><strong> Date: </strong>{{ comment.timestamp }}</p>
       </div>
     </div>

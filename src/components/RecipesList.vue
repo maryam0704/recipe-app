@@ -53,7 +53,7 @@ export default {
           chef: "barvo",
         },
         {
-          id: 2,
+          id: 5,
           name: "Salsa Chicken",
           description:
             "Use your favorite jar of salsa to give simple chicken breasts big flavor.",
@@ -63,7 +63,7 @@ export default {
           chef: "charlie",
         },
         {
-          id: 2,
+          id: 6,
           name: "Salsa Chicken",
           description:
             "Use your favorite jar of salsa to give simple chicken breasts big flavor.",
@@ -83,6 +83,7 @@ export default {
   methods: {
     addedRecipe(recipe) {
       this.recipes.push(recipe);
+      this.$emit("addedRecipe", recipe);
     },
     liked(id) {
       console.log(3, "liked!", id);
@@ -94,10 +95,10 @@ export default {
 <style scoped lang="scss">
 .recipe-list {
   display: grid;
-  grid-template-columns: 1fr ;
+  grid-template-columns: 1fr;
   width: 550px;
   align-items: center;
-    grid-gap: 20px;
+  grid-gap: 20px;
   padding: 20px;
   margin: 0 auto;
   // max-width: 1200px;

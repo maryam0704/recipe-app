@@ -2,7 +2,9 @@
   <div>
     <h2>recipe: {{ recipe.name }}</h2>
     <p>description: {{ recipe.description }}</p>
-    <button class="openRecipe"  @click="isOpen = true" :key="recipe.id">view recipe</button>
+    <button class="openRecipe" @click="isOpen = true" :key="recipe.id">
+      view recipe
+    </button>
     <div class="overlay" :class="{ active: isOpen }">
       <div class="popup">
         <RecipePreview
@@ -18,9 +20,11 @@
             <p>ingridents: {{ recipe.ingridents }}</p>
             <p>chef: {{ recipe.chef }}</p>
 
-            <button class="like"  v-if="!isAdded" @click="liked">LIKE</button>
+            <button class="like" v-if="!isAdded" @click="liked">LIKE</button>
 
-            <button class="unlike" v-else-if="isAdded" @click="unlike">UNLIKE</button>
+            <button class="unlike" v-else-if="isAdded" @click="unlike">
+              UNLIKE
+            </button>
           </div>
 
           <CommentSection></CommentSection>
@@ -120,39 +124,35 @@ export default {
   display: flex;
 }
 .like {
-  background-color:rgba(29, 155, 222, 0.793);
+  background-color: rgba(29, 155, 222, 0.793);
   border: 1px solid blue;
   border: none;
   color: white;
-  padding: 10px 20px ;
+  padding: 10px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 20px;
   font-weight: bolder;
-
-  
 }
 .unlike {
-  background-color:rgba(159, 183, 197, 0.793);
+  background-color: rgba(159, 183, 197, 0.793);
   border: 1px solid rgb(125, 125, 231);
   border: none;
   color: white;
-  padding: 10px 20px ;
+  padding: 10px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 20px;
   font-weight: bolder;
-
-
 }
 .openRecipe {
-    background-color: #ff6f00;
+  background-color: #ff6f00;
   /* border: 1px solid blue; */
   border: none;
   color: white;
-  padding: 10px 20px ;
+  padding: 10px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;

@@ -5,32 +5,16 @@
       <input v-model="newRecipe.name" id="recipeName" required />
 
       <label for="recipeIngredients">Ingredients:</label>
-      <input
-        v-model="newRecipe.ingridents"
-        id="recipeIngredients"
-        required
-      />
+      <input v-model="newRecipe.ingridents" id="recipeIngredients" required />
 
       <label for="recipeDescription">Description:</label>
-        <input
-          v-model="newRecipe.description"
-          id="recipeDescription"
-          required
-        />
+      <input v-model="newRecipe.description" id="recipeDescription" required />
 
-        <label for="recipePreptime">Preptime:</label>
-        <input
-          v-model="newRecipe.preptime"
-          id="recipePreptime"
-          required
-        />
+      <label for="recipePreptime">Preptime:</label>
+      <input v-model="newRecipe.preptime" id="recipePreptime" required />
 
-        <label for="recipeChef">Chef:</label>
-        <input
-          v-model="newRecipe.chef"
-          id="recipeChef"
-          required
-        />
+      <label for="recipeChef">Chef:</label>
+      <input v-model="newRecipe.chef" id="recipeChef" required />
 
       <button type="submit">Add Recipe</button>
     </form>
@@ -48,14 +32,20 @@ export default {
         description: "",
         preptime: "",
         chef: "",
-      }, 
+      },
     };
   },
 
   // },
   methods: {
     addRecipe() {
-      if (this.newRecipe.name && this.newRecipe.ingridents && this.newRecipe.description && this.newRecipe.preptime && this.newRecipe.chef) {
+      if (
+        this.newRecipe.name &&
+        this.newRecipe.ingridents &&
+        this.newRecipe.description &&
+        this.newRecipe.preptime &&
+        this.newRecipe.chef
+      ) {
         this.$emit("addedRecipe", { ...this.newRecipe });
         this.newRecipe.name = "";
         this.newRecipe.ingridents = "";
@@ -73,27 +63,25 @@ form {
   grid-template-columns: 1fr;
   /* width: %;
   margin: 0 auto; */
-  color:black
-
+  color: black;
 }
-input{
+input {
   width: 100%;
   height: 30px;
   margin-bottom: 10px;
   font-size: 20px;
-
 }
-label{
+label {
   font-size: 20px;
 }
-button{
+button {
   width: 50%;
   /* height: 30px; */
   margin-bottom: 10px;
   font-size: 25px;
   padding: 10px;
   /* line-height: 22px; */
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   border: #114c13;
   border-radius: 4px;
